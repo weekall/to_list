@@ -1,0 +1,36 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #001c30;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    color: #dafffb;
+    height: 60px;
+    align-items: center;
+    }
+   
+    p {
+        margin-left: 50px;
+    }
+  .navbar-block {
+    display: flex;
+    justify-content: space-between;
+    font-size: 27px;
+    letter-spacing: 5px;
+    font-family: cursive;
+    cursor: pointer; 
+    }
+  h1 {
+    font-size: 40px;
+    letter-spacing: 5px;
+    font-family: cursive;
+    cursor: pointer;
+    }
+ 
+  
+ 
+ body {
+    background-color: #dafffb;
+  }

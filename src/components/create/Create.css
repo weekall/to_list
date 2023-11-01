@@ -1,0 +1,35 @@
+.form-container{
+    margin-bottom: 15px;
+    display:flex;
+    flex-direction: column;
+    width: fit-content;
+}
+label{
+    display: flex;
+    color: #001c30;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+textarea, input{
+    width: 300px;
+    border-radius: 5px;
+    background-color: #001c30;
+    line-height: 32px;
+    border: 0;
+    color:#dafffb;
+}
+form{
+    border-radius:5px;
+    border: 1px solid  #001c30;
+    width:fit-content;
+    padding:40px;
+    margin-left:40px;
+}
+.create{
+    margin-top:80px;
+    margin-left:180px;
+    font-size:30px;
+}
