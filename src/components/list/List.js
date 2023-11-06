@@ -30,21 +30,34 @@ function List() {
   }
     return (
       <div>
-        <label class="create">Create</label>
-        <form action="" method="">
-            <div class="form-container">
-                <label>title</label>
-                <textarea type="text" name="title"></textarea>
-            </div> 
-            <div class="form-container">
-                <label>description</label>
-                <textarea type="text" name="description"></textarea>
-            </div>
-            <div class="form-container">
-                <label>priority</label>
-                <input name="prioroty" type="number"></input>
-            </div>
-        </form>
+        <div class="container-search">
+          <label class="search-label">Search</label>
+          <form action="" method="" name="search_form" class="search-form">
+            <input name="search" placeholder="Search..." class="search-input"></input>
+            <button name="search_button" type="" class="search-button">Go</button>
+          </form>
+        </div>
+        <div class="create-container">
+          <label class="create">Create</label>
+          <form action="" method="" name="create_form" class="create_form">
+              <div class="form-container">
+                  <label>title</label>
+                  <textarea type="text" name="title"></textarea>
+              </div> 
+              <div class="form-container">
+                  <label>description</label>
+                  <textarea type="text" name="description"></textarea>
+              </div>
+              <div class="form-container">
+                  <label>priority</label>
+                  <input name="prioroty" type="number"></input>
+              </div>
+              <div class="button-container">
+                  <button class="btn" type="" name="create">Create</button>
+              </div>
+          </form>
+        </div>
+        
         <div className="tasks-list">
           {list.map(item => (
             <div className={`list-item ${handlePriorityDisplay(item.priority)}`}>
