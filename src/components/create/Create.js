@@ -3,13 +3,13 @@ import "./Create.css"
 function Create(){
     return(
         <>
-            <label class="create">Create</label>
+            <label className="create">Create</label>
             <form action="" method="">
-               <div class="form-container">
+               <div className="form-container">
                     <label>title</label>
                     <textarea type="text" name="title"></textarea>
                </div> 
-               <div class="form-container">
+               <div className="form-container">
                     <label>description</label>
                     <textarea type="text" name="description"></textarea>
                 </div>

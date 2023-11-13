@@ -28,6 +28,10 @@ textarea, input{
     padding:40px;
     
 }
+.create-form-error{
+    border-color:red;
+    box-shadow: 0 0 10px #a53131;
+}
 .create{
    
     font-size: 30px;
@@ -63,4 +67,14 @@ textarea, input{
     justify-content: center;
     flex-direction: column;
     height: 1000px;
+}
+.error-message{
+    display:none;
+    color:red;
+    font-size:18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.show-error-message{
+    display: block;
 }

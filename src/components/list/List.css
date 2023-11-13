@@ -13,9 +13,7 @@
     align-items: center;
     flex-direction: column;
     gap: 25px;
-    background: #a7d2f1;
-    padding: 30px 0;
-    height: 1000px;
+    
 }
 .low-priority{
     border-color: green;
@@ -53,6 +51,7 @@
 }
 .search-form{
     display: flex;
+    margin-bottom:25px;
 }
 .container-search{
     height: 1000px;
