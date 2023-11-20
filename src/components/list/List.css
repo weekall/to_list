@@ -16,8 +16,8 @@
     
 }
 .low-priority{
-    border-color: green;
-    box-shadow: 0 0 20px #147307;
+    border-color: rgb(229, 240, 62);
+    box-shadow: 0 0 20px rgb(229, 240, 62);
 }
 .medium-priority{
     border-color: blue;
@@ -66,4 +66,26 @@
     letter-spacing: 10px;
     color: #001c30;
     font-family: cursive;
+}
+.delete-task{
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: #dafffb;
+    background: #001c30;
+    text-align: center;
+    align-self: flex-end;
+    margin-top: -20px;
+    margin-right: -20px;
+}
+.did-task{
+    background: #28303642;
+    border:black;
+    box-shadow: none;
+    text-decoration: line-through;
+}
+#did-task{
+    width:fit-content;
+    align-self: center;
 }

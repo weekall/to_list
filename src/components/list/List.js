@@ -1,31 +1,35 @@
 import "./List.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function List() {
   const [list, setList] = useState([
     {
       id: 1,
       title: "walk with dog",
       description: "walk with dog",
-      priority: 1
+      priority: 1,
+      isComplete: true,
     },
     {
       id: 2,
       title: "go for the milk",
       description: "go for the milk",
-      priority: 2
+      priority: 2,
+      isComplete: false,
     },
     {
       id: 3,
       title: "buy new clothes",
       description: "buy new clothes",
-      priority: 3
+      priority: 3,
+      isComplete: false,
     }
   ]);
   const [formData, setFormData] = useState({
     id: list.length + 1,
     title:'',
     description:'',
-    priority:1
+    priority:1,
+    isComplete: false,
   });
   function handlePriorityDisplay(priorityNumber){
     switch(+priorityNumber){
@@ -35,6 +39,7 @@ function List() {
         return "medium-priority";
       case 3:
         return "low-priority";
+      
     }
   }
   function handleInputChange(e){
@@ -54,15 +59,73 @@ function List() {
     e.preventDefault()
     if(formData.title.trim() == ''){
       setIsErrorTitle(true)
+      setTimeout(() => {
+        setIsErrorTitle(false)
+      },3000)
     } 
     else if(formData.description.trim() == ''){
       setIsErrorDescription(true)
+      setTimeout(() => {
+        setIsErrorDescription(false)
+      },3000)
     }
     else{
       setList([...list,formData])
     }
     
   }
+  function deleteTaskButton(e){
+    const id = +e.target.name
+    const tampList1 = list.slice(0,id - 1)
+    const tampList2 = list.slice(id, list.length)
+    console.log(tampList1)
+    console.log(tampList2)
+    const newList = [...tampList1, ...tampList2]
+    setList(newList)
+  }
+  function didTaskInput(e){
+    console.log(e.target.name)
+    const id = +e.target.name
+    const updateList = list.map((item)=>{
+      if(item.id == id){
+        return{...item, isComplete: !item.isComplete}
+      }
+      else{
+        return item
+      }
+    
+    })
+    setList(updateList)
+    
+
+  }
+  useEffect(() =>{
+    const sortedList = [...list].sort((a,b) =>{
+      if(a.isComplete === b.isComplete){
+        return 0;
+      }
+      if(a.isComplete === false){
+        return 1;
+      }
+      return -1;
+    })
+    setList(sortedList)
+    console.log(sortedList)
+  }, [])
+
+  useEffect(() =>{
+    const sortedList = list.sort((a,b) =>{
+      if(a.isComplete == b.isComplete){
+        return 0;
+      }
+      if(a.isComplete == false){
+        return 1;
+      }
+      return -1;
+    })
+    setList(sortedList)
+    console.log(sortedList)
+  }, [list])
     return (
       <div>
         <div className="container-search">
@@ -72,10 +135,13 @@ function List() {
             <button name="search_button" type="" className="search-button">Go</button>
           </form>
           <div className="tasks-list">
-            {list.map(item => (
-              <div className={`list-item ${handlePriorityDisplay(item.priority)}`} key={item.id}>
+            { 
+            list.map(item => (
+              <div className={`list-item ${handlePriorityDisplay(item.priority)} ${item.isComplete ? "did-task" : ""}`} key={item.id}>
+                <button name={item.id} class="delete-task" onClick={deleteTaskButton} >x</button>
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
+                <input type="checkbox" id="did-task" name={item.id} onChange={didTaskInput}/>
               </div>
             ))}
         </div>
